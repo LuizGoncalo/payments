@@ -1,8 +1,6 @@
 package br.com.luizgoncalo.paymentreceivable.resource;
 
 import br.com.luizgoncalo.paymentreceivable.domain.request.ReceivableRequest;
-import br.com.luizgoncalo.paymentreceivable.service.PaymentReceivableService;
-import br.com.luizgoncalo.paymentreceivable.service.UserService;
 import br.com.luizgoncalo.paymentreceivable.service.impl.PaymentServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
