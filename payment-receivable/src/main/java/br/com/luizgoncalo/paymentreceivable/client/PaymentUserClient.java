@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "paymentUser", url = "http://localHost:8082")
 public interface PaymentUserClient {
 
-    @GetMapping("{cpf}")
+    @GetMapping("/payment-user/{cpf}")
     public HttpStatus verifyUser(@PathVariable final String cpf);
 
 }
