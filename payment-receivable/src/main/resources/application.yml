@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/payment
+    url: jdbc:postgresql://localhost:5432/payment_receivable
     username: s2it_lgoncalo
     password: postgres
   jpa:
