@@ -6,7 +6,7 @@ plugins {
 
 group = 'br.com.luizgoncalo'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '12'
 
 configurations {
 	compileOnly {
@@ -26,9 +26,18 @@ dependencies {
 	compileOnly "org.springframework.boot:spring-boot-configuration-processor"
 
 	runtimeOnly 'org.postgresql:postgresql'
-	
+
 	annotationProcessor 'org.projectlombok:lombok'
-	
+
+	testCompile "org.testcontainers:junit-jupiter:1.11.3"
+
+	testAnnotationProcessor "org.projectlombok:lombok"
+
+	testImplementation("com.h2database:h2")
+	testImplementation "org.projectlombok:lombok"
+	testImplementation "io.rest-assured:rest-assured:3.1.0"
+	testImplementation "com.github.tomakehurst:wiremock:2.19.0"
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

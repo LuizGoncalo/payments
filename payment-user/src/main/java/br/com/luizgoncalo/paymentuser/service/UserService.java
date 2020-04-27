@@ -14,8 +14,8 @@ public class UserService {
     @Autowired
     public UserRepository userRepository;
 
-    public UserEntity verifyUser(String cpf) {
-        log.info("m=verifyUser, i=Verificando usuario");
+    public UserEntity verifyUser(final String cpf) {
+        log.info("m=verifyUser, i=Verificando usuario com cpf={}", cpf);
 
         return userRepository.findUserWithCpf(cpf)
                 .orElseThrow(UserNotFoundException::new);
