@@ -26,6 +26,9 @@ public class UserEntity {
     @Column(name = "cpf")
     private String cpf;
 
+    @Column(name="active")
+    private Boolean active;
+
     @CreatedDate
     @Column(name = "created_date")
     private LocalDateTime createdDate;

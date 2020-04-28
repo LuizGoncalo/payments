@@ -3,27 +3,40 @@ package br.com.luizgoncalo.paymentuser.integration;
 import br.com.luizgoncalo.paymentuser.base.BaseIntegrationTest;
 import io.restassured.RestAssured;
 import org.apache.http.HttpStatus;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-@ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PaymentUserResourceIntegrationTest extends BaseIntegrationTest {
 
     @Test
-    public void verifyUser(){
+    public void verifyUserActive(){
 
         RestAssured
                 .given()
                 .log().all()
                 .when()
-                .get("/payment-user/12343223433")
+                .get("/payment-user/12343223432")
                 .then()
                 .log().all()
-                .statusCode(HttpStatus.SC_OK);
+                .statusCode(HttpStatus.SC_OK)
+                .body("active", Matchers.is(true));
+
+    }
+
+    @Test
+    public void verifyUserInactive(){
+
+        RestAssured
+                .given()
+                .log().all()
+                .when()
+                .get("/payment-user/12212121234")
+                .then()
+                .log().all()
+                .statusCode(HttpStatus.SC_OK)
+                .body("active", Matchers.is(false));
 
     }
 
