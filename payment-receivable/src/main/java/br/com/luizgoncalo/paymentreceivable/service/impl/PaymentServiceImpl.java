@@ -31,7 +31,7 @@ public class PaymentServiceImpl {
     private SendMessageService sendMessageService;
 
     public void receivablePayment(final PaymentServiceRequest paymentServiceRequest){
-        log.info("M=receivablePayment, I- Recebendo payload de pagamento");
+        log.info("M=receivablePayment, I=Recebendo payload de pagamento");
 
         PaymentReceivableEntity receivableEntity = paymentMapper.receivableRequestToReceivableEntity(paymentServiceRequest);
 

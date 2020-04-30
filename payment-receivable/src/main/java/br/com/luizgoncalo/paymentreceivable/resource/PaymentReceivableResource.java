@@ -20,12 +20,12 @@ public class PaymentReceivableResource {
     @PostMapping
     private HttpStatus receivablePayment(final PaymentServiceRequest request){
          try{
-             log.info("Salvando o pagamento na payment service");
+             log.info("M=receivablePayment, I= Recebendo payload de pagamento");
              paymentService.receivablePayment(request);
              return HttpStatus.OK;
          } catch (Exception e) {
-             log.error("Erro ao receber pagamento", e);
-             return HttpStatus.NO_CONTENT;
+             log.error("M=receivablePayment, I=Erro ao receber pagamento", e);
+             return HttpStatus.BAD_REQUEST;
          }
     }
 

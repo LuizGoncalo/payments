@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PaymentReceivableRepository extends JpaRepository<PaymentReceivableEntity, Long> {
 
-    @Query("UPDATE payment_receivable p SET p.status = :status WHERE p.cpf = :cpf")
+    @Query("UPDATE PaymentReceivableEntity p SET p.status = :status WHERE p.cpf = :cpf")
     PaymentReceivableEntity updateStatusReceivable(@Param("cpf") String cpf, @Param("status") ReceivableStatusEnum status);
 
 }
