@@ -10,4 +10,6 @@ public class PaymentRequest {
 
     private BigDecimal value;
 
+    private String cpf;
+
 }

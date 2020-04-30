@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/payment
+    url: jdbc:postgresql://localhost:5432/payment_service
     username: s2it_lgoncalo
     password: postgres
   jpa:
@@ -19,4 +19,8 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest

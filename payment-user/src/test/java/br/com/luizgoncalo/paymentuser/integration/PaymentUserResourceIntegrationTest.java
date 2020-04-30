@@ -4,6 +4,7 @@ import br.com.luizgoncalo.paymentuser.base.BaseIntegrationTest;
 import io.restassured.RestAssured;
 import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -11,14 +12,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class PaymentUserResourceIntegrationTest extends BaseIntegrationTest {
 
     @Test
+    @DisplayName("Verificar usuario ativo")
     public void verifyUserActive(){
 
         RestAssured
-                .given()
+            .given()
                 .log().all()
-                .when()
+            .when()
                 .get("/payment-user/12343223432")
-                .then()
+            .then()
                 .log().all()
                 .statusCode(HttpStatus.SC_OK)
                 .body("active", Matchers.is(true));
@@ -26,14 +28,15 @@ public class PaymentUserResourceIntegrationTest extends BaseIntegrationTest {
     }
 
     @Test
+    @DisplayName("Verificar usuario inativo")
     public void verifyUserInactive(){
 
         RestAssured
-                .given()
+            .given()
                 .log().all()
-                .when()
+            .when()
                 .get("/payment-user/12212121234")
-                .then()
+            .then()
                 .log().all()
                 .statusCode(HttpStatus.SC_OK)
                 .body("active", Matchers.is(false));
@@ -41,16 +44,17 @@ public class PaymentUserResourceIntegrationTest extends BaseIntegrationTest {
     }
 
     @Test
+    @DisplayName("Verificar NOT FOUND(404)")
     public void verifyUserError(){
 
         RestAssured
-                .given()
+            .given()
                 .log().all()
-        .when()
-            .get("/payment-user")
-        .then()
-            .log().all()
-            .statusCode(HttpStatus.SC_NOT_FOUND);
+            .when()
+                .get("/payment-user")
+            .then()
+                .log().all()
+                .statusCode(HttpStatus.SC_NOT_FOUND);
 
     }
 

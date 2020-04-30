@@ -12,16 +12,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 @Data
 @Entity
-@Table(name = "payment")
+@Table(name = "payment_service")
 public class PaymentEntity {
 
     @Id
     @Column(name = "payment_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long paymentId;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long Id;
+
+    @Column(name = "user_cpf")
+    private String userCpf;
 
     @Column(name = "payment_identification", nullable = false)
     private Long paymentIdentification;
