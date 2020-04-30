@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import lombok.Data;
 
 @Data
-public class ReceivableRequest {
+public class PaymentServiceRequest {
 
     private Long paymentIdentification;
 

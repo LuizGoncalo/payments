@@ -1,6 +1,6 @@
 package br.com.luizgoncalo.paymentreceivable.resource;
 
-import br.com.luizgoncalo.paymentreceivable.domain.request.ReceivableRequest;
+import br.com.luizgoncalo.paymentreceivable.domain.request.PaymentServiceRequest;
 import br.com.luizgoncalo.paymentreceivable.service.impl.PaymentServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class PaymentReceivableResource {
     PaymentServiceImpl paymentService;
 
     @PostMapping
-    private HttpStatus receivablePayment(final ReceivableRequest request){
+    private HttpStatus receivablePayment(final PaymentServiceRequest request){
          try{
              log.info("Salvando o pagamento na payment service");
              paymentService.receivablePayment(request);

@@ -18,4 +18,9 @@ spring:
             non_contextual_creation: true
         temp:
           use_jdbc_metadata_defaults: false
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest

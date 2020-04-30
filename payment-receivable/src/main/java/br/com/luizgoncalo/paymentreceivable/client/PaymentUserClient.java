@@ -1,7 +1,7 @@
 package br.com.luizgoncalo.paymentreceivable.client;
 
+import br.com.luizgoncalo.paymentreceivable.domain.reponse.UserResponse;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface PaymentUserClient {
 
     @GetMapping("/payment-user/{cpf}")
-    public HttpStatus verifyUser(@PathVariable final String cpf);
+    UserResponse verifyUser(@PathVariable final String cpf);
 
 }

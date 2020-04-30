@@ -19,6 +19,9 @@ public class PaymentReceivableEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(name = "cpf")
+    private String cpf;
+
     @Column(name = "payment_identification")
     private Long paymentIdentification;
 

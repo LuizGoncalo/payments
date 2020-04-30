@@ -1,4 +1,4 @@
-package br.com.luizgoncalo.paymentuser.testexecutionlistener;
+package br.com.luizgoncalo.paymentreceivable.testexecutionlistener;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;

@@ -1,6 +1,6 @@
 package br.com.luizgoncalo.paymentreceivable.client;
 
-import br.com.luizgoncalo.paymentreceivable.domain.request.ReceivableRequest;
+import br.com.luizgoncalo.paymentreceivable.domain.request.PaymentServiceRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface PaymentServiceClient {
 
     @PostMapping("/payment")
-    HttpStatus savePayment(@RequestBody final ReceivableRequest request);
+    HttpStatus savePayment(@RequestBody final PaymentServiceRequest request);
 
 }
