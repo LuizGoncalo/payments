@@ -1,15 +1,24 @@
 package br.com.luizgoncalo.paymentreceivable.client;
 
 import br.com.luizgoncalo.paymentreceivable.domain.request.PaymentServiceRequest;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClient;
 
-@FeignClient(name = "paymentService", url = "http://localhost:8080")
-public interface PaymentServiceClient {
+@Component
+public class PaymentServiceClient {
 
-    @PostMapping("/payment")
-    HttpStatus savePayment(@RequestBody final PaymentServiceRequest request);
+    private final RestClient restClient = RestClient.builder()
+            .baseUrl("http://localhost:8080")
+            .build();
+
+    public HttpStatusCode savePayment(final PaymentServiceRequest request) {
+        return restClient.post()
+                .uri("/payment")
+                .body(request)
+                .retrieve()
+                .toBodilessEntity()
+                .getStatusCode();
+    }
 
 }
